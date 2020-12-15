@@ -31,9 +31,11 @@
 </div>
 <div fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="container" fxFlex="50%" flex-wrap: wrap fxFlex.xs="100%">
-    <div fxLayout="row" fxLayoutAlign="start start">
+      <div class="header"> Employee Payroll form</div>
+
+    <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 5%;">
       <div style="font-size: 53%;
-      margin-right: 4%;
+      margin-right: 10%;
       margin-top: 2.5%;"> Name </div>
       <mat-form-field class="field" fxFlex='98' appearance="outline">
         <mat-label>Name</mat-label>
@@ -41,16 +43,103 @@
 
       </mat-form-field>
     </div>
-    <div fxLayout="row" fxLayoutAlign="start center">
+    <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 0%;">
       <div style="font-size: 53%;
         margin-right: 4%;
         margin-top: 2.5%;"> Gender </div>
-      <mat-radio-group aria-label="Gender" fxLayout="row" fxLayoutAlign="space-evenly center" style="width: 140px;     padding-top: 2%;
+      <mat-radio-group aria-label="Gender" fxLayout="row" fxLayoutAlign="space-evenly start" style="width: 140px;     padding-top: 2%;
   
                 " fxFlex='98'>
         <mat-radio-button style="font-size: 49%" [value]="true">Male</mat-radio-button>
         <mat-radio-button style="font-size: 49%" [value]="false">Female</mat-radio-button>
       </mat-radio-group>
     </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 3%;">
+      <div style="font-size: 53%;
+          margin-right: 4%;
+          margin-top: 2.5%;"> Department </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 2%;" fxFlex='98'>
+        <mat-checkbox style="font-size: 49%" class="example-margin">Hr</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" class="example-margin">Sales</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" class="example-margin">Finance</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" class="example-margin">Engineer</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" class="example-margin">Others</mat-checkbox>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 3%;">
+      <div style="font-size: 53%;
+        margin-right: 10%;
+        margin-top: 2.5%;"> Salary </div>
+      <mat-form-field class="field" fxFlex='50' appearance="outline">
+        <mat-label>Salary</mat-label>
+        <select matNativeControl required>
+          <option value="volvo">10000</option>
+          <option value="saab">20000</option>
+          <option value="mercedes">300000</option>
+          <option value="audi">40000</option>
+        </select>
+
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 1%;">
+      <div style="font-size: 53%;
+          margin-right: 6%;
+          margin-top: 2.5%;"> Start Date </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 2%;" fxFlex='50'>
+        <mat-form-field class="field" fxFlex='50' appearance="outline">
+          <mat-label>Day</mat-label>
+          <select matNativeControl required>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+          </select>
+
+        </mat-form-field>
+
+        <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 7%;">
+          <mat-label> Month</mat-label>
+          <select matNativeControl required>
+            <option value="jan">Jan</option>
+            <option value="feb">Feb</option>
+            <option value="mar">Mar</option>
+            <option value="april">Apr</option>
+          </select>
+
+        </mat-form-field>
+        <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 7%;">
+          <mat-label> Year</mat-label>
+          <select matNativeControl required>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+          </select>
+
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="start start">
+        <div style="font-size: 53%;
+        margin-right: 10%;
+        margin-top: 2.5%;"> Notes </div>
+        <mat-form-field class="field" fxFlex='98' appearance="outline">
+          <mat-label>Notes</mat-label>
+          <input matInput class="matInput" autocomplete="off" placeholder="Notes">
+  
+        </mat-form-field>
+      </div>
+
+      <div class="button" fxLayout='row' fxLayoutAlign='end center'>
+          <button mat-raised-button color="primary">Submit</button>
+          <button mat-raised-button color="primary">Reset</button>
+
+        </div>
   </mat-card>
 </div>

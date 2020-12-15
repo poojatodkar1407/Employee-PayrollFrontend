@@ -23,6 +23,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { EmployeeListComponent } from './Component/employee-list/employee-list.component';
 import { EmployeeListDashComponent } from './Component/employee-list-dash/employee-list-dash.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSnackBarModule,
     MatButtonToggleModule,
     MatSidenavModule,
+    MatCheckboxModule,
     MatListModule,
     MatToolbarModule,
     MatTooltipModule,
