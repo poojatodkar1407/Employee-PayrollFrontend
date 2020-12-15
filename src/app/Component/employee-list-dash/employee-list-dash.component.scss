@@ -1,0 +1,70 @@
+.employeeHeading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+table{
+    width: 100%;
+}
+
+.tableWrapper {
+    margin-top:20px;
+    padding:20px;
+    background:#f6f6f6;
+  }
+
+  .containerTitle {
+    display:flex;
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+  }
+
+  .oneTitle {
+    flex:1;
+    padding:10px;
+    background:#444444;
+    color:#ffffff;
+  }
+
+  .twoTitle {
+    flex:1;
+    padding:10px;
+    background:#444444;
+    color:#ffffff;
+  }
+
+  .threeTitle {
+    flex:1;
+    padding:10px;
+    background:#444444;
+    color:#ffffff;
+  }
+
+  
+.containerListItems {
+    display:flex;
+  }
+
+  .three {
+    flex:1;
+    padding:10px;
+  }
+
+  .two {
+    flex:1;
+    padding:10px;
+  }
+
+  .one {
+    flex:1;
+    padding:10px;
+  }
+
+  
+  .example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
