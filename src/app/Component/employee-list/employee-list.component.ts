@@ -11,11 +11,18 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+    return value;
+  }
   @ViewChildren ('checkBox') checkBox:QueryList<any>;
   employee: Employee = new Employee();
   submitted = false;
   userDetail: FormGroup;
   checked = [];
+  precio = 0;
   department =['Hr','Sales', 'Finance', 'Engineer','Other'];
   constructor(private employeeService: UserService,
     private formBuilder: FormBuilder) { }
@@ -42,6 +49,10 @@ export class EmployeeListComponent implements OnInit {
          this.checked.push (data.value
          )
     })
+  }
+
+  getPrecio(event) {
+    this.precio = event.value;
   }
 
 
@@ -107,7 +118,7 @@ export class EmployeeListComponent implements OnInit {
     console.log(x)
     var employeeDto = {
       'name': this.userDetail.controls['name'].value,
-      'salary': this.userDetail.controls['salary'].value,
+      'salary': this.precio,
       'department':this.checked.toString(),
       'gender': this.userDetail.controls['gender'].value,
       'startDate': this.userDetail.controls['day'].value + " " + this.userDetail.controls['month'].value + " " + this.userDetail.controls['year'].value

@@ -24,6 +24,7 @@ import { EmployeeListComponent } from './Component/employee-list/employee-list.c
 import { EmployeeListDashComponent } from './Component/employee-list-dash/employee-list-dash.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatMenuModule,
     MatDialogModule,
     ImageCropperModule,
+    MatSliderModule,
     MatBadgeModule,MatRadioModule
   ],
   providers: [],

@@ -74,7 +74,7 @@
       <div style="font-size: 53%;
         margin-right: 10%;
         margin-top: 2.5%;"> Salary </div>
-      <mat-form-field class="field" fxFlex='50' appearance="outline">
+      <!-- <mat-form-field class="field" fxFlex='50' appearance="outline">
         <mat-label>Salary</mat-label>
         <select matNativeControl required formControlName="salary">
             <option *ngFor="let salary of employeeSalary " [value]="salary.bucket">
@@ -82,7 +82,10 @@
               </option>
         </select>
 
-      </mat-form-field>
+      </mat-form-field> -->
+      <mat-slider  thumbLabel
+      [displayWith]="formatLabel" (input)="getPrecio($event)"
+   min="0" max="1500000" step="1" value="{{precio}}"></mat-slider>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 1%;">
