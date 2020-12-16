@@ -60,12 +60,13 @@
           margin-right: 4%;
           margin-top: 2.5%;"> Department </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 2%;" fxFlex='98' formControlName="department">
-        <mat-checkbox style="font-size: 49%" value="Hr" class="example-margin">Hr</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" value="Sales" class="example-margin">Sales</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" value="Finance" class="example-margin">Finance</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" value="Engineer" class="example-margin">Engineer</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" value="Others" class="example-margin">Others</mat-checkbox>
+      <div *ngFor = "let department of department" fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 2%;" fxFlex='98'>
+          <mat-checkbox style="font-size: 49%" #checkBox [value]= "department" (change)="getCheckbox(checkBox)" >{{department}}</mat-checkbox>
+         <!-- <mat-checkbox style="font-size: 49%" checked="Hr"  (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Hr</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" checked="Sales"  (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Sales</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" checked="Finance" (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Finance</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" checked="Engineer"(selectionChange)="onCheckboxChange($event.value)" class="example-margin">Engineer</mat-checkbox>
+        <mat-checkbox style="font-size: 49%" checked="Others" (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Others</mat-checkbox> -->
       </div>
     </div>
 

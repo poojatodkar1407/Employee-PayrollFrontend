@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService} from '../../Services/EmployeeService/user.service'
+import { Component, OnInit , ViewChildren, QueryList} from '@angular/core';
+import { UserService } from '../../Services/EmployeeService/user.service'
 import { Employee } from "../../Employee";
-import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-employee-list',
@@ -9,11 +11,12 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective } f
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
-
+  @ViewChildren ('checkBox') checkBox:QueryList<any>;
   employee: Employee = new Employee();
   submitted = false;
   userDetail: FormGroup;
-
+  checked = [];
+  department =['Hr','Sales', 'Finance', 'Engineer','Other'];
   constructor(private employeeService: UserService,
     private formBuilder: FormBuilder) { }
 
@@ -22,20 +25,30 @@ export class EmployeeListComponent implements OnInit {
       name: [null, Validators.compose([Validators.required, Validators.minLength(2),
       Validators.pattern('[a-zA-Z ]*$')])],
       salary: [null, Validators.required],
-      department: [null, Validators.required],
       gender: [null, Validators.required],
       day: [null, Validators.required],
       year: [null, Validators.required],
       month: [null, Validators.required]
-      
+
     });
+
   
   }
+
+  getCheckbox(checkbox){
+    this.checked = [];
+    const checked = this.checkBox.filter(checkbox => checkbox.checked);
+    checked.forEach(data => {
+         this.checked.push (data.value
+         )
+    })
+  }
+
 
   employeeSalary = [
     {
       "bucket": "less than 10000",
-      "month":"Jan"
+      "month": "Jan"
     },
     {
       "bucket": "20000"
@@ -75,22 +88,33 @@ export class EmployeeListComponent implements OnInit {
     '2005',
   ];
 
+  Department = [
+    'Hr',
+    'Sales',
+    'Finance',
+    'Engineer',
+    'Other',
+  ];
+
   newEmployee(): void {
     this.submitted = false;
     this.employee = new Employee();
   }
 
   register() {
+    console.log(this.checked)
+    var x = this.checked.toString();
+    console.log(x)
     var employeeDto = {
       'name': this.userDetail.controls['name'].value,
       'salary': this.userDetail.controls['salary'].value,
-      'department': this.userDetail.controls['department'].value,
+      'department':this.checked.toString(),
       'gender': this.userDetail.controls['gender'].value,
-      'startDate': this.userDetail.controls['day'].value + " "+this.userDetail.controls['month'].value +" "+this.userDetail.controls['year'].value
+      'startDate': this.userDetail.controls['day'].value + " " + this.userDetail.controls['month'].value + " " + this.userDetail.controls['year'].value
     };
-    console.log("employee dto is",employeeDto)
-      this.employeeService.createEmployee(employeeDto).subscribe((response:any) => {
-      console.log("response is "+response);
+    console.log("employee dto is", employeeDto)
+    this.employeeService.createEmployee(employeeDto).subscribe((response: any) => {
+      console.log("response is " + response);
     })
   }
 
@@ -99,6 +123,6 @@ export class EmployeeListComponent implements OnInit {
     this.register();
   }
 
-  
+
 
 }
