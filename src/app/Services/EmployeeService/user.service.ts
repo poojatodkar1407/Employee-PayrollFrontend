@@ -27,11 +27,7 @@ export class UserService {
   }
 
   createEmployee(data){
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
+    console.log("in the service",data);
     return this.http.post('http://localhost:8080/employee-payroll/create/',data);
 
   }
