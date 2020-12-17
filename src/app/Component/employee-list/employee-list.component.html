@@ -1,37 +1,15 @@
-<!-- <h3>Create Employee</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Salary</label>
-      <input type="text" class="form-control" id="salary" required [(ngModel)]="employee.salary" name="salary">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>You submitted successfully!</h4>
-   <button class="btn btn-success" (click)="newEmployee()">Add</button> 
-</div> -->
 <div class="example-container">
   <mat-toolbar class="example-toolbar" class="example-toolbar" style="height: 102px;">
     <div fxLayout="column" style="margin-left: 6%;">
       <div style="font-size: 150%;
-     color: green;">Employee</div>
-      <div style="font-size: 150%;">Payroll</div>
+     color: green;" routerLink='/'>Employee</div>
+      <div style="font-size: 150%;" routerLink='/'>Payroll</div>
     </div>
   </mat-toolbar>
 </div>
 <div fxLayout="row" fxLayoutAlign="center center" [formGroup]="userDetail">
   <mat-card class="container" fxFlex="50%" flex-wrap: wrap fxFlex.xs="100%">
-      <div class="header"> Employee Payroll form</div>
+    <div class="header"> Employee Payroll form</div>
 
     <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 5%;">
       <div style="font-size: 53%;
@@ -39,7 +17,7 @@
       margin-top: 2.5%;"> Name </div>
       <mat-form-field class="field" fxFlex='98' appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput class="matInput"  formControlName="name"  autocomplete="off" placeholder="Name">
+        <input matInput class="matInput" formControlName="name" autocomplete="off" placeholder="Name">
 
       </mat-form-field>
     </div>
@@ -60,13 +38,11 @@
           margin-right: 4%;
           margin-top: 2.5%;"> Department </div>
 
-      <div *ngFor = "let department of department" fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 2%;" fxFlex='98'>
-          <mat-checkbox style="font-size: 49%" #checkBox [value]= "department" (change)="getCheckbox(checkBox)" >{{department}}</mat-checkbox>
-         <!-- <mat-checkbox style="font-size: 49%" checked="Hr"  (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Hr</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" checked="Sales"  (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Sales</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" checked="Finance" (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Finance</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" checked="Engineer"(selectionChange)="onCheckboxChange($event.value)" class="example-margin">Engineer</mat-checkbox>
-        <mat-checkbox style="font-size: 49%" checked="Others" (selectionChange)="onCheckboxChange($event.value)" class="example-margin">Others</mat-checkbox> -->
+      <div *ngFor="let department of department" fxLayout="row" fxLayoutAlign="space-between center"
+        style="width: 140px;padding-top: 2%;" fxFlex='98'>
+        <mat-checkbox style="font-size: 49%" #checkBox formControlName="department" [value]="department"
+          (change)="getCheckbox(checkBox)">{{department}}</mat-checkbox>
+
       </div>
     </div>
 
@@ -74,18 +50,9 @@
       <div style="font-size: 53%;
         margin-right: 10%;
         margin-top: 2.5%;"> Salary </div>
-      <!-- <mat-form-field class="field" fxFlex='50' appearance="outline">
-        <mat-label>Salary</mat-label>
-        <select matNativeControl required formControlName="salary">
-            <option *ngFor="let salary of employeeSalary " [value]="salary.bucket">
-                {{salary.bucket}}
-              </option>
-        </select>
 
-      </mat-form-field> -->
-      <mat-slider  thumbLabel
-      [displayWith]="formatLabel" (input)="getPrecio($event)"
-   min="0" max="1500000" step="1" value="{{precio}}"></mat-slider>
+      <mat-slider thumbLabel [displayWith]="formatLabel" formControlName="salary" (input)="getPrecio($event)" min="0"
+        max="1500000" step="1" value="{{precio}}"></mat-slider>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 1%;">
@@ -96,9 +63,9 @@
         <mat-form-field class="field" fxFlex='50' appearance="outline">
           <mat-label>Day</mat-label>
           <select matNativeControl required formControlName="day">
-              <option *ngFor="let day of Day " [value]="day">
-                  {{day}}
-                </option>
+            <option *ngFor="let day of Day " [value]="day">
+              {{day}}
+            </option>
           </select>
 
         </mat-form-field>
@@ -106,18 +73,18 @@
         <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 7%;">
           <mat-label> Month</mat-label>
           <select matNativeControl required formControlName="month">
-              <option *ngFor="let month of Month " [value]="month">
-                  {{month}}
-                </option>
+            <option *ngFor="let month of Month " [value]="month">
+              {{month}}
+            </option>
           </select>
 
         </mat-form-field>
         <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 7%;">
           <mat-label> Year</mat-label>
           <select matNativeControl required formControlName="year">
-              <option *ngFor="let year of Year " [value]="year">
-                  {{year}}
-                </option>
+            <option *ngFor="let year of Year " [value]="year">
+              {{year}}
+            </option>
           </select>
 
         </mat-form-field>
@@ -126,20 +93,21 @@
 
 
     <div fxLayout="row" fxLayoutAlign="start start">
-        <div style="font-size: 53%;
+      <div style="font-size: 53%;
         margin-right: 10%;
         margin-top: 2.5%;"> Notes </div>
-        <mat-form-field class="field" fxFlex='98' appearance="outline">
-          <mat-label>Notes</mat-label>
-          <input matInput class="matInput" autocomplete="off" placeholder="Notes">
-  
-        </mat-form-field>
-      </div>
+      <mat-form-field class="field" fxFlex='98' appearance="outline">
+        <mat-label>Notes</mat-label>
+        <input matInput class="matInput" autocomplete="off" placeholder="Notes">
 
-      <div class="button" fxLayout='row' fxLayoutAlign='end space-between'>
-          <button class = "register" mat-raised-button color="primary"(click)="register()">Submit</button>
-          <button class = "register" mat-raised-button color="primary">Reset</button>
+      </mat-form-field>
+    </div>
 
-        </div>
+    <div class="button" fxLayout='row' fxLayoutAlign='end space-between'>
+      <button class="register" *ngIf="!isEdit" mat-raised-button color="primary" (click)="register()">Submit</button>
+      <button class="register" *ngIf="isEdit" mat-raised-button color="primary" (click)="update()">Update</button>
+      <button class="register" mat-raised-button color="primary" (click) = "reset()">Reset</button>
+
+    </div>
   </mat-card>
 </div>

@@ -4,7 +4,8 @@ import { EmployeeListComponent } from './Component/employee-list/employee-list.c
 import { EmployeeListDashComponent } from './Component/employee-list-dash/employee-list-dash.component';
 const routes: Routes = [
   { path: '', component: EmployeeListDashComponent },
-  {path: 'create', component: EmployeeListComponent}
+  {path: 'create', component: EmployeeListComponent},
+  {path: 'create/:id', component: EmployeeListComponent}
 
   
 ];

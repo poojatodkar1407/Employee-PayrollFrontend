@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-list-dash.component.scss']
 })
 export class EmployeeListDashComponent implements OnInit {
-
   employees: any;
   color;
   constructor(private employeeService: UserService,
@@ -22,7 +21,6 @@ export class EmployeeListDashComponent implements OnInit {
     this.employeeService.getEmployeesList().subscribe((response:Response)=>{
       console.log("Response is ====> ",response)
        this.employees = response;
-      console.log(this.employees)
     })
   }
 

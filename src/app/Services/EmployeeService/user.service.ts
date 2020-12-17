@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  
   constructor(private http: HttpClient) { }
   getEmployeesList(){
     console.log("in service")
@@ -29,6 +30,15 @@ export class UserService {
   createEmployee(data){
     console.log("in the service",data);
     return this.http.post('http://localhost:8080/employee-payroll/create/',data);
+
+  }
+
+  getEmployee(id){
+    return this.http.get('http://localhost:8080/employee-payroll/getbyid/?id='+id);
+  }
+
+  updateEmployee(data){
+    return this.http.put('http://localhost:8080/employee-payroll/update/',data);
 
   }
 }

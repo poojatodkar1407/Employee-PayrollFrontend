@@ -1,3 +1,24 @@
+.container
+{
+    text-align: center;
+    margin-top: 10%; 
+    font-size: 40px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .example-toolbar {
+    background-color: rgb(214, 206, 206);
+    
+  }
+
 .employeeHeading{
     display: flex;
     align-items: center;
@@ -29,20 +50,6 @@ table{
     color:#ffffff;
   }
 
-  .twoTitle {
-    flex:1;
-    padding:10px;
-    background:#444444;
-    color:#ffffff;
-  }
-
-  .threeTitle {
-    flex:1;
-    padding:10px;
-    background:#444444;
-    color:#ffffff;
-  }
-
   
 .containerListItems {
     display:flex;
@@ -64,7 +71,19 @@ table{
   }
 
   
-  .example-button-row button,
-.example-button-row a {
-  margin-right: 8px;
+//   .example-button-row button,
+// .example-button-row a {
+//   margin-right: 8px;
+// }
+
+.register {
+  color: white;
+  font-size: 16px;
+  padding: 13px 30px;
+  width: fit-content;
+  transition: all 0.5s ease-in-out;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: 700;
+  font-size: large;
 }

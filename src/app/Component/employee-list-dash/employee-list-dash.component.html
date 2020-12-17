@@ -1,40 +1,47 @@
+<div class="example-container">
+  <mat-toolbar class="example-toolbar" class="example-toolbar" style="height: 102px;">
+    <div fxLayout="column" style="margin-left: 6%;">
+      <div style="font-size: 150%;
+       color: green;">Employee</div>
+      <div style="font-size: 150%;">Payroll</div>
+    </div>
+  </mat-toolbar>
+</div>
+<div fxLayout='row' fxLayoutAlign="space-between center" style="color: black;
+margin-top: 8%;">
+  <div style="font-weight: 800;
+  font-size: 258%;">Employee Details</div>
+  <div>
+    <button class="register" mat-raised-button color="primary" routerLink='/create'>Add Employee</button>
+  </div>
+</div>
 <div class="panel panel-default">
-    <div>
-      Add Employee
-  
-    
-  <div class="example-button-row">
-   
-    <button mat-raised-button color="primary">Primary</button>
-   
-  </div>
-      <!-- <app-create-employee></app-create-employee> -->
+
+    <div class="tableWrapper">
+      <div class="containerTitle">
+        <div class="oneTitle">Id</div>
+        <div class="oneTitle">Name</div>
+        <div class="oneTitle">Salary</div>
+        <div class="oneTitle">Department</div>
+        <div class="oneTitle">Gender</div>
+        <div class="oneTitle">Start Date</div>
+        <div class="oneTitle">Actions</div>
+      </div>
+
+      <div class="containerListItems" *ngFor="let employee of employees;" [style.background-color]="changeColorOne()">
+        <div class="one">{{employee.id}}</div>
+        <div class="two">{{employee.name}}</div>
+        <div class="two">{{employee.salary}}</div>
+        <div class="two">{{employee.departments}}</div>
+        <div class="two">{{employee.gender}}</div>
+        <div class="two">{{employee.startDate}}</div>
+
+
+        <div class="three">
+          <button mat-raised-button [routerLink]="['/create', employee.id]">E</button>
+          <button mat-raised-button (click)="deleteEmployee(employee.id)">X</button>
+        </div>
+      </div>
     </div>
-    <div class="employeeHeading">
-      <h1>Employees</h1>
-    </div>
-    <div class="employeeBody">
-      <div class="tableWrapper">
-          <div class="containerTitle">
-            <div class="oneTitle">Id</div>
-            <div class="twoTitle">Name</div>
-            <div class="threeTitle">Salary</div>
-            <div class="threeTitle">Actions</div>
-            <!-- <div class="four"></div> -->
-          </div>
-          
-          <div class="containerListItems" *ngFor="let employee of employees;" [style.background-color]="changeColorOne()">
-            <div class="one">{{employee.id}}</div>
-            <div class="two">{{employee.name}}</div>
-            <div class="two">{{employee.salary}}</div>
   
-            <div class="three">
-              <!-- <button (click)="editEmployee(employee.id)">E</button> -->
-              <button (click)="deleteEmployee(employee.id)">X</button>
-            </div>
-            <!-- <div class="four"></div> -->
-          </div>
-          </div>
-    </div>
-  </div>
-  
+</div>
