@@ -21,6 +21,27 @@
 
       </mat-form-field>
     </div>
+<!-- 
+    <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 1%;">
+        <div style="font-size: 53%;
+        margin-right: 10%;
+        margin-top: 2.5%;" >Profile</div>
+        <mat-radio-group aria-label="Image" fxLayout="row"
+            fxLayoutAlign="space-evenly" fxFlex='98'  style="width: 140px;     padding-top: 2%;">
+            <mat-radio-button value="../assets/profile-images/Ellipse -3.png">
+                <img src="../assets/Ellipse -3.png" alt="img1">
+            </mat-radio-button>
+            <mat-radio-button value="../assets/profile-images/Ellipse -1.png">
+                <img src="../assets/Ellipse -1.png" alt="img2">
+            </mat-radio-button>
+            <mat-radio-button value="../assets/profile-images/Ellipse -8.png">
+                <img src="../assets/Ellipse -8.png" alt="img3">
+            </mat-radio-button>
+            <mat-radio-button value="../assets/profile-images/Ellipse -7.png">
+                <img src="../assets/Ellipse -7.png" alt="img4">
+            </mat-radio-button>
+        </mat-radio-group>
+    </div> -->
     <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 0%;">
       <div style="font-size: 53%;
         margin-right: 4%;
@@ -38,12 +59,14 @@
           margin-right: 4%;
           margin-top: 2.5%;"> Department </div>
 
-      <div *ngFor="let department of department" fxLayout="row" fxLayoutAlign="space-between center"
+      <div *ngFor="let dept of department" fxLayout="row" fxLayoutAlign="space-between center"
         style="width: 140px;padding-top: 2%;" fxFlex='98'>
-        <mat-checkbox style="font-size: 49%" #checkBox formControlName="department" [value]="department"
-          (change)="getCheckbox(checkBox)">{{department}}</mat-checkbox>
-
+        <mat-checkbox style="font-size: 49%" #checkBox formControlName="department" [checked] = "toggleCheckBox(dept)" [value]="dept"
+          (change)="getCheckbox()"> {{dept}}</mat-checkbox>
+          
+          
       </div>
+     
     </div>
 
     <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 3%;">
